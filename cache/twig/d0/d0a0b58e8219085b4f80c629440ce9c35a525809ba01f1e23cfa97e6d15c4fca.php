@@ -205,7 +205,7 @@ class __TwigTemplate_cc43f5ef3a1230e7564d05d3ed3a58eb85ee7cde251317024c1cf9c334e
         // line 46
         echo ((((isset($context["base_url"]) ? $context["base_url"] : null) == "")) ? ("/") : ((isset($context["base_url"]) ? $context["base_url"] : null)));
         echo "\">";
-        echo $this->getAttribute($this->getAttribute((isset($context["config"]) ? $context["config"] : null), "site", array()), "title", array());
+        echo (isset($context["test"]) ? $context["test"] : null);
         echo "</a></h3>
             </div>
             <div id=\"navbar\">
@@ -374,7 +374,7 @@ class __TwigTemplate_cc43f5ef3a1230e7564d05d3ed3a58eb85ee7cde251317024c1cf9c334e
         {% block header %}
         <header id=\"header\">
             <div id=\"logo\">
-                <h3><a href=\"{{ base_url == '' ? '/' : base_url }}\">{{ config.site.title }}</a></h3>
+                <h3><a href=\"{{ base_url == '' ? '/' : base_url }}\">{{ test }}</a></h3>
             </div>
             <div id=\"navbar\">
                 {% block header_extra %}{% endblock %}

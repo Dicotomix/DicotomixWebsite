@@ -1,0 +1,15 @@
+---
+title: 'Homepage Showcase'
+menu: Top
+buttons:
+    -
+        text: Download
+        url: 'http://github.com/Dicotomix'
+        primary: true
+---
+
+# Dicotomix
+## A faster way of spelling
+
+
+
