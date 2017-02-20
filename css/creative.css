@@ -3,6 +3,10 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+
+
+/* CUSTOM CSS AT THE END */
+ 
 html,
 body {
   height: 100%;
@@ -413,4 +417,18 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: #222222;
+}
+
+
+/* CUSTOM CSS */
+
+.bg-lavender {
+  /*background-color: #e6ebec;*/
+  background-color: lavender;
+}
+
+section
+{
+	//margin-bottom:2px;
+	border-bottom: 5px solid #edf1f2;
 }
