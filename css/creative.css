@@ -432,3 +432,7 @@ section
 	//margin-bottom:2px;
 	border-bottom: 5px solid #edf1f2;
 }
+
+.dropdown-menu {
+    min-width: 0px !important;
+}

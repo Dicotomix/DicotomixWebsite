@@ -1,3 +1,25 @@
+<?php
+$labels = [
+	"en" => "English",
+	"fr" => "Français",
+	"es" => "Español",
+	"pl" => "Polski"];
+
+	
+$curr_lang = "en"; //put "en" by default
+
+if (isset($_GET['lang']) && array_key_exists($_GET['lang'], $labels))
+	$curr_lang = $_GET['lang'];
+
+$curr_lang_lab = $labels[$curr_lang];
+require_once('lang/lang_'.$curr_lang.'.php');
+
+$uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
+$url = substr($uri_parts[0], 0, -1);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +31,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dicotomix Project</title>
+    <title><?= $dict['title_browser'] ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -50,19 +72,30 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#project">Project</a>
+                        <a class="page-scroll" href="#project"><?= $dict['project'] ?></a>
                     </li>
 					
 					<li>
-                        <a class="page-scroll" href="#gallery">Gallery</a>
+                        <a class="page-scroll" href="#gallery"><?= $dict['gallery'] ?></a>
                     </li>
 					
                     <li>
-                        <a class="page-scroll" href="#team">Team</a>
+                        <a class="page-scroll" href="#team"><?= $dict['team'] ?></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#contact"><?= $dict['contact'] ?></a>
                     </li>
+					
+					<li class="dropdown">
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <img  src=<?php echo '"img/flags/flag_'.$curr_lang.'.png"'?> alt="<?= $curr_lang_lab ?>" /><span class="caret"></span></a>
+					  <ul class="dropdown-menu">
+						<li><a href= <?php echo '"'.$url.'?lang=en"'; ?>><img  src="img/flags/flag_en.png" alt="English" /></a></li>
+						<li><a href= <?php echo '"'.$url.'?lang=fr"'; ?>><img  src="img/flags/flag_fr.png" alt="Français" /></a></li>
+						<li><a href= <?php echo '"'.$url.'?lang=es"'; ?>><img  src="img/flags/flag_es.png" alt="Español" /></a></li>
+						<li><a href= <?php echo '"'.$url.'?lang=pl"'; ?>><img  src="img/flags/flag_pl.png" alt="Polski" /></a></li>
+					  </ul>
+					</li>
+					
                     <!--<li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>-->
@@ -76,10 +109,10 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1 id="homeHeading">Spell Faster</h1>
+                <h1 id="homeHeading"><?= $dict['header_title'] ?></h1>
                 <hr>
-                <p>Helping people with heavy handicaps unable to talk to communicate more easily.</p>
-                <a href="#project" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+                <p><?= $dict['header_subtitle'] ?></p>
+                <a href="#project" class="btn btn-primary btn-xl page-scroll"><?= $dict['header_button'] ?></a>
             </div>
         </div>
     </header>
@@ -90,9 +123,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">What is dicotomix?</h2>
+                    <h2 class="section-heading"><?= $dict['whatisdicotomix_title'] ?></h2>
                     <hr class="light">
-                    <p>Dicotomix is born with the realization that spelling a word one letter at a time can be cumbersome for the writer. It aims at spelling words faster using only yes/no questions to find a word in the dictionary, rather than spelling it one letter at a time.</p>
+                    <p><?= $dict['whatisdicotomix_content'] ?></p>
                     
 					<!--<a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>-->
                 </div>
@@ -204,8 +237,8 @@
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
-                <h2>Want to see more ? Check GitHub</h2>
-                <a href="http://github.com/Dicotomix" class="btn btn-default btn-xl sr-button">Get me to GitHub</a>
+                <h2><?= $dict['github_content'] ?></h2>
+                <a href="http://github.com/Dicotomix" class="btn btn-default btn-xl sr-button"><?= $dict['github_button'] ?></a>
             </div>
         </div>
     </aside>
@@ -217,9 +250,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Our Team</h2>
+                    <h2 class="section-heading"><?= $dict['team_title'] ?></h2>
                     <hr class="primary">
-                    <p>We are a team of M1 students in Fundamental Computer Science at the <a href="http://www.ens-lyon.fr/">ENS de Lyon</a>.</p>
+                    <p><?= $dict['team_content'] ?> <a href="http://www.ens-lyon.fr/">ENS de Lyon</a>.</p>
 					
 					
                     
@@ -252,9 +285,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Contact</h2>
+                    <h2 class="section-heading"><?= $dict['contact_title'] ?></h2>
                     <hr class="primary">
-                    <p>Interested in our project? That's great! You can contact us by email.</p>
+                    <p><?= $dict['contact_content'] ?></p>
                 </div>
                 <!--
 				<div class="col-lg-4 col-lg-offset-2 text-center">
