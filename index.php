@@ -3,7 +3,8 @@ $labels = [
 	"en" => "English",
 	"fr" => "Français",
 	"es" => "Español",
-	"pl" => "Polski"];
+	"pl" => "Polski",
+	"de" => "Deutsch"];
 
 	
 $curr_lang = "en"; //put "en" by default
@@ -101,10 +102,9 @@ $url = substr($uri_parts[0], 0, -1);
 					<li class="dropdown">
 					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <img  src=<?php echo '"img/flags/flag_'.$curr_lang.'.png"'?> alt="<?= $curr_lang_lab ?>" /><span class="caret"></span></a>
 					  <ul class="dropdown-menu">
-						<li><a href= <?php echo '"'.$url.'?lang=en"'; ?>><img  src="img/flags/flag_en.png" alt="English" /></a></li>
-						<li><a href= <?php echo '"'.$url.'?lang=fr"'; ?>><img  src="img/flags/flag_fr.png" alt="Français" /></a></li>
-						<li><a href= <?php echo '"'.$url.'?lang=es"'; ?>><img  src="img/flags/flag_es.png" alt="Español" /></a></li>
-						<li><a href= <?php echo '"'.$url.'?lang=pl"'; ?>><img  src="img/flags/flag_pl.png" alt="Polski" /></a></li>
+					  <?php foreach($labels as $lang => $lab): ?>
+						<li><a href= <?php echo '"'.$url.'?lang='.$lang.'"'; ?>><img  src= <?php echo '"img/flags/flag_'.$lang.'.png" alt="'.$lab.'"' ?> /></a></li>
+					  <?php endforeach; ?>
 					  </ul>
 					</li>
 					
