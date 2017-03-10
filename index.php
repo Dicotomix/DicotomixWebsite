@@ -8,8 +8,20 @@ $labels = [
 	
 $curr_lang = "en"; //put "en" by default
 
+//if we selected a new language
 if (isset($_GET['lang']) && array_key_exists($_GET['lang'], $labels))
-	$curr_lang = $_GET['lang'];
+{
+	$curr_lang = htmlspecialchars($_GET['lang']);
+	setcookie('lang', $curr_lang, time() + 365*24*3600, null, null, false, true);
+}
+//else if we already have a language in preferences we load it
+else if(isset($_COOKIE['lang']) && array_key_exists($_COOKIE['lang'], $labels))
+{
+	$curr_lang = htmlspecialchars($_COOKIE['lang']);
+}
+
+
+
 
 $curr_lang_lab = $labels[$curr_lang];
 require_once('lang/lang_'.$curr_lang.'.php');
