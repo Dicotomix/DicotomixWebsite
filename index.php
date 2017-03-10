@@ -1,10 +1,10 @@
 <?php
 $labels = [
-	"en" => "English",
+	"en" => "English"];/*,
 	"fr" => "Français",
 	"es" => "Español",
 	"pl" => "Polski",
-	"de" => "Deutsch"];
+	"de" => "Deutsch"];*/
 
 	
 $curr_lang = "en"; //put "en" by default
