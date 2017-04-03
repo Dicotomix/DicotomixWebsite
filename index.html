@@ -3,43 +3,73 @@
         <title>Dicotomix</title>
         <meta charset="utf-8">
         <link href="http://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link rel="icon" type="image/png" href="icon.png" />
         <style type="text/css">
             :root{
-                --color-orange: #ffcc66;
+                --color-orange: #f4ac46;
+                --color-orange-light: #ffcc66;
                 --color-black: #292f36;
                 --color-blue: #297373;
-                --color-green: #038c03;
+                --color-blue-dark: #095353;
+                --color-green: #3c3;
+                --color-green-dark: #038c03;
                 --color-grey: #999;
             }
 
-        	body {
+            body {
         		max-width:	700px;
         		margin: 0 auto;
-        		background: var(--color-orange) fixed no-repeat;
-                background-image: url('icon.png');
-                background-position: 5% 5%;
-                /*background-size: ;*/
-        		font-family: Raleway, Helvetica;
+                font-family: Raleway, Helvetica;
         		color: #444;
+                background: var(--color-orange-light) no-repeat;
+                background-image: url('icon.png');
+                background-position: 5% 2%;
+                background-size: 20% auto;
         	}
 
-        	nav {
-        		text-align: center;
-        		border-bottom: 1px solid grey;
-        	}
+            nav {
+                text-align: center;
+                border-bottom: 1px solid grey;
+            }
 
-        	nav a {
-        		display: inline-block;
-        		padding: 20px;
-        		text-decoration: none;
-        		color: var(--color-black);
-        		font-size: 1.1em;
-        	}
+            nav a {
+                transition: .2s;
+                display: block;
+                padding: 10px;
+                text-decoration: none;
+                color: var(--color-black);
+                font-size: 1.3em;
+            }
 
-        	nav a:hover {
-        		color: black;
-        		background: #fcebda;
-        	}
+            nav a:hover {
+                transition: .2s;
+                color: black;
+                background: var(--color-orange);
+            }
+
+
+            @media (min-width: 900px) {
+                body {
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                    background-image: url('icon.png'), url('ensl.png'), url('ucbl.png');
+                    background-position: 5% 5%, 5% 30%, 5% 50%;
+                    background-size: 10% auto, 10% auto, 10% auto ;
+                }
+
+                nav a {
+                    display: inline-block;
+                    padding: 20px;
+                    font-size: 1.1em;
+                }
+
+                img { transition: .4s; }
+                img:hover {
+                    transition: .4s;
+                    transform: scale(1.1);
+                }
+            }
+            
 
         	h1 {
         		text-align: center;
@@ -59,6 +89,19 @@
         		text-indent: 30px;
         		line-height: 1.4em;
         	}
+
+            a {
+                transition: .2s;
+                color: var(--color-blue);
+            }
+            a:hover {
+                transition: .2s;
+                color: var(--color-blue-dark);
+            }
+            a.solo {
+                display: block;
+                text-align: center;
+            }
         </style>
     </head>
     <body>
@@ -76,19 +119,18 @@
                 Dicotomix est un logiciel qui s'adresse aux personnes en situation de handicap moteur empêchant la communication par la parole ou l'écriture. <br/>
                 Dicotomix permet, à l'aide d'un signal oui/non en entrée, de trouver de manière efficace un mot dans un lexique. <br/>
                 Pour en savoir plus sur l'approche utilisée et ce qu'elle apporte en plus des méthodes traditionnelles, vous pouvez consulter: <br/>
-
-                <center>
-                <a href='comparison.pdf'> Étude </a>
-                </center>
-	    	</p>
-            <h2 id="snap">Snapshot</h2>
-            <p>
-                <img src='snap1.png' width='100%'/>
             </p>
+            <a href='comparison.pdf' class="solo" target="_blank"> Voir l'étude </a>
+            
+            <h2 id="snap">Snapshot</h2>
+            <a href='snap1.png' target='_blank' title="Ouvrir l'image dans un nouvel onglet" alt="Snapshot">
+                <img src='snap1.png' width='100%'/>
+            </a>
 
 	    	<h2 id="team">Équipe</h2>
 	    	<p>
-	    		Dicotomix est réalisé dans le cadre du projet intégré du M1 d'informatique de l'ENS de Lyon.
+	    		Dicotomix est réalisé dans le cadre du projet intégré du M1 d'informatique de l'ENS de Lyon. Vous pouvez nous contacter via
+                <a href="mailto:dicotomix@ens-lyon.fr">dicotomix@ens-lyon.fr</a>.
                 <br/>
                 Participent à sa réalisation :
                 <ul>
@@ -104,7 +146,6 @@
                 <li> Rémy Pellerin </li>
                 <li> Agnieszka Słowik </li>
                 <li> Thibault Souquet </li>
-
                 </ul>
 	    	</p>
 
@@ -112,10 +153,8 @@
             <p>
                 En développement actif, Dicotomix est pour le moment instable. <br/>
                 Distribuées sous licence MIT, vous pouvez trouver ses sources ici:<br/>
-                <center>
-                <a href='https://github.com/Dicotomix/'>Dicotomix</a>
-                </center>
             </p>
+            <a href='https://github.com/Dicotomix/' class="solo" target="_blank">Dicotomix sur Github</a>
 	    </div>
     </body>
 </html>
